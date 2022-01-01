@@ -19,7 +19,7 @@ jobs:
         id: fetch-repo-and-user-details
         with:
           script: |
-            const query = `query($owner:String!, $email:String!, $name:String!) {
+            const query = `query($owner:String!, $name:String!) {
               repository(owner:$owner, name:$name) {
                 name
                 description
@@ -27,7 +27,6 @@ jobs:
                   login
                   ... on User {
                     name
-                    email
                   }
                   ... on Organization {
                     name
@@ -38,7 +37,6 @@ jobs:
             const variables = {
               owner: context.repo.owner,
               name: context.repo.repo,
-              email: context.repo.email
             }
             const result = await github.graphql(query, variables)
             console.log(result)
