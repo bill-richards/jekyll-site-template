@@ -39,7 +39,8 @@ jobs:
             }`;
             const variables = {
               owner: context.repo.owner,
-              name: context.repo.repo
+              name: context.repo.repo,
+              email: context.repo.email
             }
             const result = await github.graphql(query, variables)
             console.log(result)
