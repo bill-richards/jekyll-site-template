@@ -49,6 +49,7 @@ jobs:
           # Delete this workflow:
           rm -rf .github
           export REPO_NAME=$(echo $INFO | jq -r '.repository.name')
+          console.log($REPO_NAME)
           # Run cookiecutter
           pushd /tmp
           cookiecutter gh:bill-richards/new-jekyll-site-cookiecutter --no-input \
