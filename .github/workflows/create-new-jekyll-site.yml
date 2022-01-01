@@ -64,8 +64,6 @@ jobs:
           mv /tmp/$REPO_NAME/.gitignore .
           mv /tmp/$REPO_NAME/README.md .
           mv /tmp/$REPO_NAME/docs .
-          # Now remove the empty datasette-x directory:
-          rmdir $REPO_NAME
 
       - name: Force push new repo contents
         uses: stefanzweifel/git-auto-commit-action@v4
