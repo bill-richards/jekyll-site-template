@@ -20,15 +20,13 @@ jobs:
         with:
           script: |
             const query = `query($owner:String!, $email:String!, $name:String!) {
-              repository(owner:$owner, email:$email name:$name) {
+              repository(owner:$owner, email:$email, name:$name) {
                 name
                 description
                 owner {
                   login
                   ... on User {
                     name
-                  }
-                  ... on User {
                     email
                   }
                   ... on Organization {
