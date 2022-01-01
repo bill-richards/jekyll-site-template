@@ -26,7 +26,8 @@ jobs:
                 owner {
                   login
                   ... on User {
-                    name
+                    name,
+                    email
                   }
                   ... on Organization {
                     name
@@ -49,7 +50,7 @@ jobs:
           # Delete this workflow:
           rm -rf .github
           export REPO_NAME=$(echo $INFO | jq -r '.repository.name')
-          console.log($REPO_NAME)
+          ECHO $REPO_NAME
           # Run cookiecutter
           pushd /tmp
           cookiecutter gh:bill-richards/new-jekyll-site-cookiecutter --no-input \
