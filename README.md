@@ -5,7 +5,7 @@ This is a [template repository](https://docs.github.com/en/github/creating-cloni
 The created repo will contain a `/docs` folder with which Jekyll will work to generate the web site. Initially the web site will be styled using the [minima theme](https://github.com/jekyll/minima).
 
 Why don't you jump right in and 
-- start [here](https://github.com/bill-richardsjekyll-site-template-repository/generate)
+- start [here](https://github.com/bill-richards/jekyll-site-template-repository/generate)
 - then 
   - add a description for your new repository, 
   - and click "Create repository from template".
