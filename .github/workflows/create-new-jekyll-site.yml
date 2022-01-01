@@ -20,7 +20,7 @@ jobs:
         with:
           script: |
             const query = `query($owner:String!, $email:String!, $name:String!) {
-              repository(owner:$owner, name:$name) {
+              repository(owner:$owner, email:$email name:$name) {
                 name
                 description
                 owner {
@@ -40,7 +40,7 @@ jobs:
             const variables = {
               owner: context.repo.owner,
               name: context.repo.repo,
-              email: context.repo.email
+              email: context.repo.owner.email
             }
             const result = await github.graphql(query, variables)
             console.log(result)
