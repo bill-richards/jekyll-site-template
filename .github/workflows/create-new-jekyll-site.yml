@@ -19,7 +19,7 @@ jobs:
         id: fetch-repo-and-user-details
         with:
           script: |
-            const query = `query($owner:String!, $name:String!) {
+            const query = `query($owner:String!, $email:String!, $name:String!) {
               repository(owner:$owner, name:$name) {
                 name
                 description
@@ -27,6 +27,9 @@ jobs:
                   login
                   ... on User {
                     name
+                  }
+                  ... on User {
+                    email
                   }
                   ... on Organization {
                     name
@@ -57,10 +60,11 @@ jobs:
             author_email="$(echo $INFO | jq -r .repository.owner.email)" \
             author_name="$(echo $INFO | jq -r .repository.owner.name)"
           # Move generated content to root directory of repo
-          mv $REPO_NAME/* .
-          # And .github and .gitignore too:
-          mv $REPO_NAME/.gitignore .
-          mv $REPO_NAME/.github .
+          mv /tmp/$REPO_NAME/* .
+          # And .gitignore too:
+          mv /tmp/$REPO_NAME/.gitignore .
+          mv /tmp/$REPO_NAME/README.md .
+          mv /tmp/$REPO_NAME/docs .
           # Now remove the empty datasette-x directory:
           rmdir $REPO_NAME
 
