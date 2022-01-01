@@ -50,12 +50,14 @@ jobs:
           rm -rf .github
           export REPO_NAME=$(echo $INFO | jq -r '.repository.name')
           # Run cookiecutter
+          pushd /tmp
           cookiecutter gh:bill-richards/new-jekyll-site-cookiecutter --no-input \
             lib_name=$REPO_NAME \
             description="$(echo $INFO | jq -r .repository.description)" \
             github_user="$(echo $INFO | jq -r .repository.owner.login)" \
             author_email="$(echo $INFO | jq -r .repository.owner.email)" \
             author_name="$(echo $INFO | jq -r .repository.owner.name)"
+          popd
           # Move generated content to root directory of repo
           mv /tmp/$REPO_NAME/* .
           # And .gitignore too:
