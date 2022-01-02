@@ -1,5 +1,13 @@
 # Jekyll Site Template Repository
 
+## If this is your new repo
+
+Your repo is currently being setup. While that's happening you should head along to the settings page
+where you should enable Github Pages. Be sure to set the branch to `develop` and the folder to `/docs` 
+then click save. The repo will have been configured and the github-pages action will have been initiated.
+
+## If this is not your new rep
+
 This is a [template repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-repository-from-a-template), used for the creation of new Git Repositories with a Jekyll web site ready enabled.
 
 The created repo will contain a `/docs` folder with which Jekyll will work to generate the web site. Initially the web site will be styled using the [minima theme](https://github.com/jekyll/minima).
