@@ -50,22 +50,28 @@ jobs:
           # Delete this workflow:
           rm -rf .github
           export REPO_NAME=$(echo $INFO | jq -r '.repository.name')
-          ECHO $REPO_NAME
+
           # Run cookiecutter
           pushd /tmp
           cookiecutter gh:bill-richards/new-jekyll-site-cookiecutter --no-input \
-            lib_name=$REPO_NAME \
-            description="$(echo $INFO | jq -r .repository.description)" \
+            repository_name=$REPO_NAME \
+            site_description="$(echo $INFO | jq -r .repository.description)" \
             github_user="$(echo $INFO | jq -r .repository.owner.login)" \
-            author_email="$(echo $INFO | jq -r .repository.owner.email)" \
-            author_name="$(echo $INFO | jq -r .repository.owner.name)"
+            email="$(echo $INFO | jq -r .repository.owner.email)" \
+            author="$(echo $INFO | jq -r .repository.owner.name)"
           popd
+          
+          echo calling ls /tmp/$REPO_NAME/
+          ls /tmp/$REPO_NAME/
+          echo calling ls /tmp/$REPO_NAME/$REPO_NAME/
+          ls /tmp/$REPO_NAME/$REPO_NAME/
+          
           # Move generated content to root directory of repo
-          mv /tmp/$REPO_NAME/* .
+          #mv /tmp/$REPO_NAME/* .
           # And .gitignore too:
-          mv /tmp/$REPO_NAME/.gitignore .
-          mv /tmp/$REPO_NAME/README.md .
-          mv /tmp/$REPO_NAME/docs .
+          #mv /tmp/$REPO_NAME/.gitignore .
+          #mv /tmp/$REPO_NAME/README.md .
+          #mv /tmp/$REPO_NAME/docs .
 
       - name: Force push new repo contents
         uses: stefanzweifel/git-auto-commit-action@v4
