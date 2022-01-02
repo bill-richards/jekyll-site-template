@@ -68,7 +68,7 @@ jobs:
 
       - name: Set repository details
         uses: actions/github-script@v4
-        id: fetch-repo-and-user-details
+        id: refetch-repo-and-user-details
         with:
           script: |
             const query = `query($owner:String!, $name:String!) {
