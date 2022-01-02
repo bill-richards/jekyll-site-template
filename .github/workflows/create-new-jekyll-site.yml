@@ -26,8 +26,9 @@ jobs:
                 owner {
                   login
                   ... on User {
-                    name,
+                    name
                     email
+                    twitterUsername
                   }
                   ... on Organization {
                     name
@@ -58,6 +59,7 @@ jobs:
             site_description="$(echo $INFO | jq -r .repository.description)" \
             site_title=$REPO_NAME \
             github_user="$(echo $INFO | jq -r .repository.owner.login)" \
+            twitter="$(echo $INFO | jq -r .repository.owner.twitterUsername)" \
             email="$(echo $INFO | jq -r .repository.owner.email)" \
             author="$(echo $INFO | jq -r .repository.owner.name)"
           popd
@@ -75,14 +77,12 @@ jobs:
               repository(owner:$owner, name:$name) {
                 name
                 description
-                details {
-                  website
-                }
+                homepageUrl
                 owner {
                   login
                   ... on User {
                     name
-                    twitter
+                    twitterUsername
                   }
                   ... on Organization {
                     name
