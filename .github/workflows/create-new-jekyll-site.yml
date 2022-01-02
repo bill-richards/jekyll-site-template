@@ -56,6 +56,7 @@ jobs:
           cookiecutter gh:bill-richards/new-jekyll-site-cookiecutter --no-input \
             repository_name=$REPO_NAME \
             site_description="$(echo $INFO | jq -r .repository.description)" \
+            site_title=$REPO_NAME \
             github_user="$(echo $INFO | jq -r .repository.owner.login)" \
             email="$(echo $INFO | jq -r .repository.owner.email)" \
             author="$(echo $INFO | jq -r .repository.owner.name)"
