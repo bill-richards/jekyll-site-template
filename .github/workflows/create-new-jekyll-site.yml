@@ -61,13 +61,8 @@ jobs:
             author="$(echo $INFO | jq -r .repository.owner.name)"
           popd
           
-          echo calling ls /tmp/$REPO_NAME/
-          ls /tmp/$REPO_NAME/
-          echo calling ls /tmp/$REPO_NAME/$REPO_NAME/
-          ls /tmp/$REPO_NAME/$REPO_NAME/
-          
           # Move generated content to root directory of repo
-          #mv /tmp/$REPO_NAME/* .
+          mv /tmp/$REPO_NAME/* .
           # And .gitignore too:
           #mv /tmp/$REPO_NAME/.gitignore .
           #mv /tmp/$REPO_NAME/README.md .
