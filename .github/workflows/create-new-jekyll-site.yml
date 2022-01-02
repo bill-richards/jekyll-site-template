@@ -61,12 +61,9 @@ jobs:
             author="$(echo $INFO | jq -r .repository.owner.name)"
           popd
           
-          # Move generated content to root directory of repo
+          # Move generated content and .gitignore to root directory of repo
           mv /tmp/$REPO_NAME/* .
-          # And .gitignore too:
-          #mv /tmp/$REPO_NAME/.gitignore .
-          #mv /tmp/$REPO_NAME/README.md .
-          #mv /tmp/$REPO_NAME/docs .
+          mv /tmp/$REPO_NAME/.gitignore .
 
       - name: Force push new repo contents
         uses: stefanzweifel/git-auto-commit-action@v4
