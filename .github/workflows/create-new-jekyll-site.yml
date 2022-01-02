@@ -75,11 +75,13 @@ jobs:
               repository(owner:$owner, name:$name) {
                 name
                 description
-                website
+                details {
+                  website
+                }
                 owner {
                   login
                   ... on User {
-                    name,
+                    name
                     twitter
                   }
                   ... on Organization {
