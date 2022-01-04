@@ -67,36 +67,9 @@ jobs:
           # Move generated content and .gitignore to root directory of repo
           mv /tmp/$REPO_NAME/* .
           mv /tmp/$REPO_NAME/.gitignore .
-
-      - name: Set repository details
-        uses: actions/github-script@v4
-        id: refetch-repo-and-user-details
-        with:
-          script: |
-            const query = `query($owner:String!, $name:String!) {
-              repository(owner:$owner, name:$name) {
-                name
-                description
-                homepageUrl
-                owner {
-                  login
-                  ... on User {
-                    name
-                    twitterUsername
-                  }
-                  ... on Organization {
-                    name
-                  }
-                }
-              }
-            }`;
-            const variables = {
-              owner: context.repo.owner,
-              name: context.repo.repo,
-            }
-            const result = await github.graphql(query, variables)
-            console.log(result)
-            return result
+          mv /tmp/$REPO_NAME/.github .
+          
+          rm -f .github/workflows/create-new-jekyll-site.yml
 
       - name: Force push new repo contents
         uses: stefanzweifel/git-auto-commit-action@v4
