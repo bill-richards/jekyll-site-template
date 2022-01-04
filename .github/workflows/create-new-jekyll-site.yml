@@ -54,7 +54,7 @@ jobs:
 
           # Run cookiecutter
           pushd /tmp
-          cookiecutter gh:bill-richards/new-jekyll-site-cookiecutter --no-input \
+          cookiecutter gh:bill-richards/jekyll-site-cookiecutter --no-input \
             repository_name=$REPO_NAME \
             site_description="$(echo $INFO | jq -r .repository.description)" \
             site_title=$REPO_NAME \
