@@ -1,4 +1,4 @@
-# Jekyll Site Template Repository
+# [_Jekyll Site Template_](https://github.com/bill-richards/jekyll-site-template)
 
 ## If this is your new repo
 
@@ -20,4 +20,4 @@ Why don't you jump right in and
 
 The name of your repository will be the subpath of your published website. This will generally be `https://<your-github-account_name>.gihub.io/<your-repository-name>`
 
-Once created, your new repository will execute a GitHub Actions workflow that uses the [_new Jekyll site cookiecutter_](https://github.com/bill-richards/new-jekyll-site-cookiecutter) to reconfigure the repository. This process make take 30 seconds or so, depending upon the availability of runners to pick up the workflow.
+Once created, your new repository will execute a GitHub Actions workflow that uses the [_New Jekyll site cookiecutter_](https://github.com/bill-richards/new-jekyll-site-cookiecutter) to reconfigure the repository. This process make take 30 seconds or so, depending upon the availability of runners to pick up the workflow.
