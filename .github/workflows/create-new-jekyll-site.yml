@@ -1,4 +1,4 @@
-name: Cookiecutter script to populate repository
+name: Create Jekyll /docs structure
 
 on: [push]
 
