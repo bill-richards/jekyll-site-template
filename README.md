@@ -4,7 +4,11 @@
 
 Your repo is currently being setup. While that's happening you should head along to the settings page
 where you should enable Github Pages. Be sure to set the branch to `develop` and the folder to `/docs` 
-then click save. The repo will have been configured and the github-pages action will have been initiated.
+then click save. when you've finished there come back here, and if the configuration of the repository
+has completed, this [README.md](./) document will have changed. 
+
+If you come back here and can still read this document, click [HERE](./) to see about bringing a little change 
+around here. 
 
 ## If this is not your new repo
 
