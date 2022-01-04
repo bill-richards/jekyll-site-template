@@ -65,11 +65,11 @@ jobs:
           popd
           
           # Move generated content and .gitignore to root directory of repo
+          rm -f /tmp/$REPO_NAME/.github/workflows/create-new-jekyll-site.yml
           mv /tmp/$REPO_NAME/* .
           mv /tmp/$REPO_NAME/.gitignore .
           mv /tmp/$REPO_NAME/.github .
           
-          rm -f .github/workflows/create-new-jekyll-site.yml
 
       - name: Force push new repo contents
         uses: stefanzweifel/git-auto-commit-action@v4
